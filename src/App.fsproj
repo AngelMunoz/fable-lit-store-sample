@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Store.fs" />
+    <Compile Include="App.fs" />
+    <Compile Include="Main.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Fable.Lit" Version="1.3.1" />
+    <PackageReference Include="Fable.Lit.Elmish" Version="1.3.0" />
+    <PackageReference Include="Fable.Store" Version="1.0.0-beta-005" />
+  </ItemGroup>
+
+</Project>
