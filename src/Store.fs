@@ -6,10 +6,9 @@ open Fable.Core
 open Fable.Core.JsInterop
 
 type ILitStore<'Type> =
-    abstract member Value : 'Type
-    abstract member Update : ('Type -> 'Type) -> unit
-    abstract member SetValue : 'Type -> unit
-
+    inherit IStore<'Type>
+    abstract member Value: 'Type
+    abstract member SetValue: 'Type -> unit
 
 [<AttachMembers>]
 type LitStore<'Type>(host: LitElement, initial: 'Type) as this =
@@ -18,10 +17,8 @@ type LitStore<'Type>(host: LitElement, initial: 'Type) as this =
 
     do host?addController (this)
 
-
     member private _.hostConnected() =
-        store.Subscribe (fun newValue ->
-            printfn $"{value} - {newValue}"
+        store.Subscribe(fun newValue ->
             value <- newValue
             host.requestUpdate ())
         |> ignore
@@ -34,8 +31,6 @@ type LitStore<'Type>(host: LitElement, initial: 'Type) as this =
         member _.Update(updateFn: 'Type -> 'Type) = store.Update(updateFn)
 
         member _.SetValue(value: 'Type) = store.Update(fun _ -> value)
-
-
 
 let (<~) (store: ILitStore<'Type>) (value: 'Type) = store.SetValue(value)
 

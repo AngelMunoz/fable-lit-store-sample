@@ -2,20 +2,20 @@
   "version": 1,
   "isRoot": true,
   "tools": {
-    "fable": {
-      "version": "3.6.3",
-      "commands": [
-        "fable"
-      ]
-    },
     "perla": {
-      "version": "0.18.0",
+      "version": "0.24.1",
       "commands": [
         "perla"
       ]
     },
-    "fantomas-tool": {
-      "version": "4.6.0-alpha-004",
+    "fable": {
+      "version": "4.0.0-theta-004",
+      "commands": [
+        "fable"
+      ]
+    },
+    "fantomas": {
+      "version": "5.0.0-beta-010",
       "commands": [
         "fantomas"
       ]
